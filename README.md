@@ -10,3 +10,11 @@
 `$ npm i express`
 
 `$ npm i cors`
+
+# Установка пакетов для TypeScript:
+
+`$ npm i -D typescript ts -node`
+
+# Инициализация TypeScript:
+
+`$ npx tsc --init`

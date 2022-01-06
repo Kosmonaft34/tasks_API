@@ -10,6 +10,8 @@ services:
       MYSQL_DATABASE: tasks_db
       MYSQL_USER: tasks_user
       MYSQL_PASSWORD: user123456
+    ports:
+      - 3307:3306
    
   phpmyadmin:
     image: phpmyadmin

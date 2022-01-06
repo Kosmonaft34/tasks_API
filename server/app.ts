@@ -1,7 +1,7 @@
 require('dotenv').config()
-const express = require ('express')
-const sequelize = require('./db')
-const tasksRouter = require('./features/tasks/tasks.router')
+import express from 'express'
+import {sequelize} from './db'
+import tasksRouter from './features/tasks/tasks.router'
 const app = express()
 const port = process.env.PORT || 3000 
 
@@ -11,7 +11,7 @@ app.use('/api/tasks', tasksRouter)
 
 app.use(express.static('./client'))
 
-async function start(){
+async function start(): Promise<void>{
     try {
         await sequelize.authenticate();
         await sequelize.sync()
