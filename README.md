@@ -15,6 +15,6 @@
 
 `$ npm i -D typescript ts -node`
 
-# Инициализация TypeScript:
+# Инициализация TypeScript(создаёт файл tsconfig.json):
 
 `$ npx tsc --init`

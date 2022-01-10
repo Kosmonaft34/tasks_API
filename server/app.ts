@@ -1,5 +1,5 @@
 require('dotenv').config()
-import express from 'express'
+import express, { ErrorRequestHandler } from 'express'
 import {sequelize} from './db'
 import tasksRouter from './features/tasks/tasks.router'
 const app = express()
@@ -10,6 +10,12 @@ app.use('/api', express.json())
 app.use('/api/tasks', tasksRouter)
 
 app.use(express.static('./client'))
+
+const expressErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
+    res.status(err.statusCode).send(err.message)
+}
+
+
 
 async function start(): Promise<void>{
     try {
