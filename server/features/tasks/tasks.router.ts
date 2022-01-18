@@ -2,7 +2,7 @@ import express from "express";
 import { validator } from "sequelize/dist/lib/utils/validator-extras";
 import { createTask, deleteTask, getAllTasks, getTask, updateTask } from "./tasks.controller";
 import TasksModel from "./tasks.model";
-import { createTaskValidator, getIdValidator, IdValidator } from "./tasks.validator";
+import { createTaskValidator, IdValidator } from "./tasks.validator";
 
 const tasksRouter =express.Router()
 

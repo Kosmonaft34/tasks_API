@@ -21,10 +21,13 @@ Content-Type: application/json
 GET http://localhost:3000/api/tasks/8
 
 ###
-DELETE http://localhost:3000/api/tasks/2/delete
+GET http://localhost:3000/api/tasks
 
 ###
-PATCH  http://localhost:3000/api/tasks/2/update
+DELETE http://localhost:3000/api/tasks/3/delete
+
+###
+PATCH  http://localhost:3000/api/tasks/3/update
 Content-Type: application/json
 
 {

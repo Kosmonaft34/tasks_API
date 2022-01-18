@@ -20,12 +20,12 @@ export async function getTaskService(id: number)  {
 
 export async function delTaskService(id:number) {
     let result;
-    try {
-       const result = await TasksModel.destroy({where:{id: id}})
-    } catch (error) {
-        const err = error as Error
-        throw httpError(400, err.message)
-    }
+    // try {
+       result = await TasksModel.destroy({where:{id: id}})
+    // } catch (error) {
+    //     const err = error as Error
+    //     throw httpError(400, err.message)
+    // }
     if (result === 1) {
         return{ success: true}
     } else
