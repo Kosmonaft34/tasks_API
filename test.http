@@ -24,7 +24,7 @@ GET http://localhost:3000/api/tasks/8
 GET http://localhost:3000/api/tasks
 
 ###
-DELETE http://localhost:3000/api/tasks/3/delete
+DELETE http://localhost:3000/api/tasks/4/delete
 
 ###
 PATCH  http://localhost:3000/api/tasks/3/update

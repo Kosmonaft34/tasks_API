@@ -1,6 +1,6 @@
 import express from "express";
 import { validator } from "sequelize/dist/lib/utils/validator-extras";
-import { createTask, deleteTask, getAllTasks, getTask, updateTask } from "./tasks.controller";
+import { TasksController } from "./tasks.controller";
 import TasksModel from "./tasks.model";
 import { createTaskValidator, IdValidator } from "./tasks.validator";
 
@@ -11,19 +11,19 @@ const tasksRouter =express.Router()
 
 // Read (HTTP - GET)
 // Read all tasks
-tasksRouter.get('/', getAllTasks)
+tasksRouter.get('/', TasksController.getAllTasks)
 
 // Read one tasks
-tasksRouter.get('/:id', IdValidator, getTask)
+tasksRouter.get('/:id', IdValidator, TasksController.getTask)
 
 //Create task
-tasksRouter.post('/', createTaskValidator, createTask)
+tasksRouter.post('/', createTaskValidator, TasksController.createTask)
 
 //Delete task
-tasksRouter.delete('/:id/delete', deleteTask)
+tasksRouter.delete('/:id/delete', TasksController.deleteTask)
 
 //Update task
-tasksRouter.patch('/:id/update', updateTask)
+tasksRouter.patch('/:id/update', TasksController.updateTask)
 
 
 //экспортируем данные из js модуля(файла)

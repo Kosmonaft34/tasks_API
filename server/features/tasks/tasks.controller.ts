@@ -5,31 +5,31 @@ import { TaskDto } from "./tasks.dto"
 import TasksModel from "./tasks.model"
 import { delTaskService, getAllTasksService, getTaskService, updateTaskService } from "./tasks.service"
 
-const TasksController =  controller({
+export const TasksController =  controller({
 
-    async getAllTasks(req: Request, res: Response) {
+    async getAllTasks(req, res) {
         const tasks = await getAllTasksService()
         res.send(tasks)
     },
 
-    async getTask(req: Request, res: Response) {
+    async getTask(req, res) {
         const id = req.params.id
         const task = await getTaskService(+id)
         res.send(task)
     },
 
-    async createTask(req: Request, res: Response) {
+    async createTask(req, res) {
         const newTask: TaskDto = req.body
         const taskFromDb = await TasksModel.create(newTask)
         res.send(taskFromDb)
     },
 
-    async deleteTask(req: Request, res: Response) {
+    async deleteTask(req, res) {
         const id = +req.params.id
         const result = await delTaskService(id)
         res.send(result)
     },
-    async updateTask(req: Request, res: Response) {
+    async updateTask(req, res) {
         const updatedTask = req.body //read date
         const id = +req.params.id //search task for id
         const upTask = await updateTaskService(id, updatedTask)
