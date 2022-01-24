@@ -1,8 +1,9 @@
-import { Model, DataTypes } from "sequelize";
+import { Model, DataTypes } from "sequelize"; 
 import sequelize from "../../db";
 
-export default class TasksModel extends Model{}
+export default class TasksModel extends Model{}  //создаём модель
 
+//инициализируем поля модели(отношения)
 TasksModel.init({
     title: {
         type: DataTypes.STRING,
@@ -15,7 +16,8 @@ TasksModel.init({
         type: DataTypes.BOOLEAN
     }
 }, {
-    sequelize,
+    //передаём объект sequelize,чтобы модель знала как подключаться к БД 
+    sequelize,              
     tableName: 'Task'
 })
 

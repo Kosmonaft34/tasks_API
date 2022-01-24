@@ -18,3 +18,5 @@
 # Инициализация TypeScript(создаёт файл tsconfig.json):
 
 `$ npx tsc --init`
+
+# Создаём файл docker-compose.yml в корне проекта подключаем phpmyadmin https://hub.docker.com/_/phpmyadmin

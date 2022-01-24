@@ -1,10 +1,10 @@
 import express from "express";
 import { validator } from "sequelize/dist/lib/utils/validator-extras";
 import { TasksController } from "./tasks.controller";
-import TasksModel from "./tasks.model";
+import TasksModel from "./tasks.model";                                 //подключаем модель 
 import { createTaskValidator, IdValidator } from "./tasks.validator";
 
-const tasksRouter =express.Router()
+const tasksRouter =express.Router()    
 
 // RESTful API
 // CRUD (Create Reade Update Delete)

@@ -1,6 +1,8 @@
 POST http://localhost:3000/api/tasks
-Content-Type: application/json
+# указываем,что данные в формате json
+Content-Type: application/json 
 
+# body то,что передаётся в нашем запросе
 {
     "title": "Task 1",
     "description": "Task 1 desc",

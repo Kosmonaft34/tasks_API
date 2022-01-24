@@ -1,21 +1,29 @@
 version: '3.1'
 
 services:
+# указываем,что контейнер будет db(database)
   db:
+  # указываем,что он будет создаваться на базе образа mysql
     image: mysql
+    # команда для запуска подключения с использванием mysql_native_password
     command: --default-authentication-plugin=mysql_native_password
+    # указываем,что этот контейнер будет всегда перезапускаться
     restart: always
+    # указываем переменные окружения,котрые необходимы для инициализации нашей БД
     environment:
       MYSQL_ROOT_PASSWORD: example
       MYSQL_DATABASE: tasks_db
       MYSQL_USER: tasks_user
       MYSQL_PASSWORD: user123456
+    # указываем порты,которые будут пробрасываться mysql будет доступен с нашей машины по порту 3307,а внутренний порт 3306
     ports:
       - 3307:3306
    
+  # Создаём ещё один контейнер phpmyadmin 
   phpmyadmin:
-    image: phpmyadmin
+  # Берём его образ с phpmyadmin
     restart: always
+    # указываем порт на нашей машине разработки 8080,но внутри по 80.Когда в браузере будем писать localhost:8080 будет запускаться phpmyadmin и т.к. они объединены в одну сеть,то мы будем подключаться к mysql не который у нас установлен на компе,а который мы прописали выше
     ports:
       - 8080:80
     environment:

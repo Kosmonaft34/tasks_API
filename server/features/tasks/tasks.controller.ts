@@ -19,9 +19,9 @@ export const TasksController =  controller({
     },
 
     async createTask(req, res) {
-        const newTask: TaskDto = req.body
-        const taskFromDb = await TasksModel.create(newTask)
-        res.send(taskFromDb)
+        const newTask: TaskDto = req.body                   //считывает данные,которые приходят в формате json при запросе,те которые вводит пользователь (app.use('/api', express.json())-файл app) 
+        const taskFromDb = await TasksModel.create(newTask) //записываем данные в БД
+        res.send(taskFromDb)                                //возвращаем эти данные
     },
 
     async deleteTask(req, res) {
@@ -30,8 +30,8 @@ export const TasksController =  controller({
         res.send(result)
     },
     async updateTask(req, res) {
-        const updatedTask = req.body //read date
-        const id = +req.params.id //search task for id
+        const updatedTask = req.body            //read date
+        const id = +req.params.id               //search task for id
         const upTask = await updateTaskService(id, updatedTask)
         res.send(upTask)
     },
